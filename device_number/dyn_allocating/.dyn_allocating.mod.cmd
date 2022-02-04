@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/device_number/dyn_allocating/dyn_allocating.mod := { echo  /home/mavis/Desktop/Device_driver/device_number/dyn_allocating/dyn_allocating.o;  echo; } > /home/mavis/Desktop/Device_driver/device_number/dyn_allocating/dyn_allocating.mod

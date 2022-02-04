@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/pass_argv/Module.symvers := sed 's/\.ko$$/\.o/' /home/mavis/Desktop/Device_driver/pass_argv/modules.order | scripts/mod/modpost -m -a  -o /home/mavis/Desktop/Device_driver/pass_argv/Module.symvers -e -i Module.symvers   -T -

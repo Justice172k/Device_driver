@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/device_number/dyn_allocating/modules.order := {   echo /home/mavis/Desktop/Device_driver/device_number/dyn_allocating/dyn_allocating.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/device_number/dyn_allocating/modules.order

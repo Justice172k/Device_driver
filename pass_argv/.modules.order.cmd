@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/pass_argv/modules.order := {   echo /home/mavis/Desktop/Device_driver/pass_argv/pass_argv.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/pass_argv/modules.order

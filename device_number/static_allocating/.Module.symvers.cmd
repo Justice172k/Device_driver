@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/device_number/static_allocating/Module.symvers := sed 's/\.ko$$/\.o/' /home/mavis/Desktop/Device_driver/device_number/static_allocating/modules.order | scripts/mod/modpost -m -a  -o /home/mavis/Desktop/Device_driver/device_number/static_allocating/Module.symvers -e -i Module.symvers   -T -
