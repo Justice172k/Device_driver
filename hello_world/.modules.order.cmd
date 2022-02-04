@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/hello_world/modules.order := {   echo /home/mavis/Desktop/Device_driver/hello_world/hello_world.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/hello_world/modules.order

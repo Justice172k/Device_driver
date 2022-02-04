@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/hello_world/hello_world.mod := { echo  /home/mavis/Desktop/Device_driver/hello_world/hello_world.o;  echo; } > /home/mavis/Desktop/Device_driver/hello_world/hello_world.mod
