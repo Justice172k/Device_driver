@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/create_device_file/modules.order := {   echo /home/mavis/Desktop/Device_driver/create_device_file/auto_create.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/create_device_file/modules.order

@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/create_device_file/auto_create.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/mavis/Desktop/Device_driver/create_device_file/auto_create.ko /home/mavis/Desktop/Device_driver/create_device_file/auto_create.o /home/mavis/Desktop/Device_driver/create_device_file/auto_create.mod.o;  true

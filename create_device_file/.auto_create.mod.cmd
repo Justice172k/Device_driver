@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/create_device_file/auto_create.mod := { echo  /home/mavis/Desktop/Device_driver/create_device_file/auto_create.o;  echo; } > /home/mavis/Desktop/Device_driver/create_device_file/auto_create.mod
