@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/file_ops/file_ops.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/mavis/Desktop/Device_driver/file_ops/file_ops.ko /home/mavis/Desktop/Device_driver/file_ops/file_ops.o /home/mavis/Desktop/Device_driver/file_ops/file_ops.mod.o;  true
