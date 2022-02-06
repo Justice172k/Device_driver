@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/real_driver/real_driver.mod := { echo  /home/mavis/Desktop/Device_driver/real_driver/real_driver.o;  echo; } > /home/mavis/Desktop/Device_driver/real_driver/real_driver.mod

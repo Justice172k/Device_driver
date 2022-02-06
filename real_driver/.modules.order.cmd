@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/real_driver/modules.order := {   echo /home/mavis/Desktop/Device_driver/real_driver/real_driver.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/real_driver/modules.order
