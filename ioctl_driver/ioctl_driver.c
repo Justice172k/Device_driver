@@ -3,12 +3,21 @@
 #include <linux/module.h>
 #include <linux/kdev_t.h>
 #include <linux/fs.h>
-#include <linux/device.h>
 #include <linux/cdev.h>
+#include <linux/device.h>
+#include<linux/slab.h>                
+#include<linux/uaccess.h>              
+#include <linux/ioctl.h>
 
-dev_t dev = 0;
+ 
+#define WR_VALUE _IOW('a','a',int32_t*)
+#define RD_VALUE _IOR('a','b',int32_t*)
+ 
+int32_t value = 0;
+
+dev_t dev = 0; 
 static struct class *dev_class;
-static struct cdev device_cdev;// khi driver muon dk 1 so thiet bi char driver phai nop cho kernel 1 bao cao cau truc ve cac char device, device_cdev o day la ban bao cao do
+static struct cdev device_cdev;
 
 static int open_device(struct inode *inode, struct file *file)
 {
@@ -35,6 +44,29 @@ static ssize_t write_device(struct file *filp, const char __user *buff, size_t l
 	return len;
 }
 
+static long ioctl_device(struct file *file, unsigned int cmd, unsigned long arg)
+{
+         switch(cmd) {
+                case WR_VALUE:
+                        if( copy_from_user(&value ,(int32_t*) arg, sizeof(value)) )
+                        {
+                                pr_err("Data Write : Err!\n");
+                        }
+                        pr_info("Value = %d\n", value);
+                        break;
+                case RD_VALUE:
+                        if( copy_to_user((int32_t*) arg, &value, sizeof(value)) )
+                        {
+                                pr_err("Data Read : Err!\n");
+                        }
+                        break;
+                default:
+                        pr_info("Default\n");
+                        break;
+        }
+        return 0;
+}
+
 static struct file_operations fops = 
 {
 	.owner	= THIS_MODULE,
@@ -42,11 +74,12 @@ static struct file_operations fops =
 	.write	= write_device,
 	.open	= open_device,
 	.release= release_device,
+	.unlocked_ioctl=ioctl_device,
 };
-// khoi tao struct fops
-static int __init file_ops_init(void)
+
+static int __init ioctl_driver_init(void)
 {
-	if((alloc_chrdev_region(&dev, 2, 1, "ops_device"))<0)
+	if((alloc_chrdev_region(&dev, 2, 1, "ioctl_device"))<0)
 	{
 		pr_err("error allocate major number\n");// cap phat major number
 		return -1;
@@ -61,13 +94,13 @@ static int __init file_ops_init(void)
 		goto r_class;
 	}
 	
-	if((dev_class = class_create(THIS_MODULE, "ops_class")) == NULL)
+	if((dev_class = class_create(THIS_MODULE, "mavis_class")) == NULL)
 	{
 		pr_err("don't create class\n");//tao ra 1 class chua cac thiet bi
 		goto r_class;
 	}
 	
-	if((device_create(dev_class, NULL, dev, NULL, "new_ops_device_file"))==NULL)// tao ra cai device_file trong class
+	if((device_create(dev_class, NULL, dev, NULL, "ioctl_device_file"))==NULL)// tao ra cai device_file trong class
 	{
 		pr_err("can not create device file\n");
 		goto r_device;
@@ -81,7 +114,7 @@ r_class:
 	return -1;
 }
 
-static void __exit file_ops_exit(void)
+static void __exit ioctl_driver_exit(void)
 {
 	device_destroy(dev_class, dev);
 	class_destroy(dev_class);
@@ -90,11 +123,12 @@ static void __exit file_ops_exit(void)
 	pr_info("driver was removed \n end \n");
 }
 
-module_init(file_ops_init);
-module_exit(file_ops_exit);
+
+module_init(ioctl_driver_init);
+module_exit(ioctl_driver_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Mavis <justice172k@gmail.com>");
-MODULE_DESCRIPTION("File Operations");
-MODULE_VERSION("1.3");
+MODULE_DESCRIPTION("ioctl driver");
+MODULE_VERSION("1.5");
 

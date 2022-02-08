@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/ioctl_driver/Module.symvers := sed 's/\.ko$$/\.o/' /home/mavis/Desktop/Device_driver/ioctl_driver/modules.order | scripts/mod/modpost -m -a  -o /home/mavis/Desktop/Device_driver/ioctl_driver/Module.symvers -e -i Module.symvers   -T -

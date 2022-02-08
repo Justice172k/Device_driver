@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/ioctl_driver/ioctl_driver.mod := { echo  /home/mavis/Desktop/Device_driver/ioctl_driver/ioctl_driver.o;  echo; } > /home/mavis/Desktop/Device_driver/ioctl_driver/ioctl_driver.mod

@@ -1,0 +1,1 @@
+cmd_/home/mavis/Desktop/Device_driver/ioctl_driver/modules.order := {   echo /home/mavis/Desktop/Device_driver/ioctl_driver/ioctl_driver.ko; :; } | awk '!x[$$0]++' - > /home/mavis/Desktop/Device_driver/ioctl_driver/modules.order
